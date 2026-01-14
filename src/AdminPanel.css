@@ -1,0 +1,95 @@
+/* Układ */
+.admin-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 120px); /* odejmij nagłówek/stopkę appki, jeśli są */
+  gap: 0;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  background: #0f172a;            /* ciemny granat */
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 8px; margin-bottom: 14px;
+}
+.brand .logo { font-size: 22px; }
+.brand-name { font-weight: 800; letter-spacing: .3px; }
+
+.menu { display: grid; gap: 6px; margin-top: 6px; }
+.menu-item {
+  text-align: left;
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid transparent;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .12s ease, border .12s ease, transform .12s ease;
+}
+.menu-item:hover {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.25);
+  transform: translateX(2px);
+}
+
+.sidebar-footer { margin-top: auto; }
+.btn.light {
+  background: #f3f4f6; color: #111827;
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 10px;
+}
+
+/* Main */
+.admin-main { background: #f8fafc; padding: 18px; }
+
+.admin-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.admin-header h1 { margin: 0 0 2px; }
+.muted { color: #64748b; margin: 0; }
+
+.admin-user { display: flex; align-items: center; gap: 10px; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #1d4ed8; color: #fff; display: grid; place-items: center; font-weight: 800;
+}
+.admin-user .name { font-weight: 700; }
+.admin-user .role { color: #64748b; font-size: .9rem; }
+
+/* Kafle */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.card.tile {
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+  padding: 14px; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform .12s ease, box-shadow .12s ease, border .12s ease;
+}
+.card.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+}
+
+.tile-icon { font-size: 22px; margin-bottom: 8px; }
+.tile-title { font-weight: 800; margin-bottom: 4px; }
+.tile-desc { color: #64748b; margin-bottom: 10px; min-height: 34px; }
+.tile-cta { color: #1d4ed8; font-weight: 600; }
+
+/* Responsywność */
+@media (max-width: 900px) {
+  .admin-layout { grid-template-columns: 1fr; }
+  .admin-sidebar { grid-row: 2; border-top: 1px solid #1f2937; }
+  .admin-main { grid-row: 1; }
+}
